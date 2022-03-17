@@ -9,10 +9,12 @@ public class Relogio {
         setSegundo(segundo);
     }
 
-    public void setHora(int novaHora) {
+    public boolean setHora(int novaHora) {
         if (novaHora >= 0 && novaHora < 24) {
             hora = novaHora;
+            return true;
         }
+        return false;
     }
 
     public void setMinuto(int novoMinuto) {
