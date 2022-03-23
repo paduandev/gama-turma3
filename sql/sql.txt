@@ -1,0 +1,43 @@
+create database bdpetshop;
+
+use bdpetshop;
+
+create table tb_proprietario (
+codigo integer not null auto_increment,
+nome varchar(200) not null,
+email varchar(80),
+primary key (codigo) );
+
+show tables;
+
+create table tb_animal (
+codigo integer not null auto_increment,
+nome varchar(100) not null,
+raca varchar(100),
+proprietario integer,
+primary key (codigo),
+foreign key (proprietario) references tb_proprietario (codigo) );
+
+desc tb_animal;
+
+insert into tb_proprietario values (null, "João", "joao@email.com");
+insert into tb_proprietario values (null, "Ana", "ana@email.com");
+
+select * from tb_proprietario;
+
+insert into tb_animal values (null, "Lulu", "Pitbull", 1);
+
+select * from tb_proprietario where codigo = 1; 
+select * from tb_animal where proprietario = 1;
+
+select tb_proprietario.nome 
+from tb_proprietario, tb_animal
+where tb_proprietario.codigo = tb_animal.proprietario and tb_animal.nome = "Lulu";
+
+
+
+
+
+
+
+
